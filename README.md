@@ -18,11 +18,11 @@ ein Beispiel:
     {
       "name": "omc/omc-composer-installer",
       "type": "vcs",
-      "url": "https://github.com/OXIDprojects/OXID-Module-Connector.git"
+      "url": "https://github.com/ioly/composer-installer.git"
     }
   ],
   "require": {
-    "omc/omc-composer-installer": "dev-composer-installer"
+    "omc/omc-composer-installer": "*"
   },
   "extra": {
     "omc-composer-installer": {
