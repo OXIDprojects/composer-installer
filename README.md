@@ -43,12 +43,13 @@ ein Beispiel:
 ```
 
 siehe auch "example-composer.json" im Projekt.
-Im __"extra"__-Bereich konfiguriert ihr den omc Composer Installer, Pflicht sind hier mindestens ein __"Cookbook"__ im "cookbooks"-Array
+Im __"extra"__-Bereich konfiguriert ihr den omc Composer Installer, Pflicht sind hier mindestens "oxidversion", ein __"Cookbook"__ im "cookbooks"-Array
 sowie natürlich mindestens ein omc-Modul ;)
 Bei jedem "composer install" oder "composer update" wird dann das "modules"-Array durchgegangen und
 noch nicht im Shop installierte Module automatisch (über den ioly-Core) installiert.
-Aktuell wird nur die Installation der omc-Module über Composer installiert, deinstallieren muss man
-aktuell noch "manuell" über die omc-Shell.
+
+Aktuell wird nur die Installation der omc-Module über Composer unterstützt, deinstallieren muss man
+aktuell noch "manuell" über die omc-Shell - die Module werden _nicht_ automatisch deinstalliert, wenn man die Einträge aus der "composer.json" entfernt.
 
 ## Disclaimer
 
