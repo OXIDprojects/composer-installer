@@ -18,11 +18,11 @@ ein Beispiel:
     {
       "name": "omc/omc-composer-installer",
       "type": "vcs",
-      "url": "git@glass.shoptimax.de:internal/omc-composer-installer.git"
+      "url": "https://github.com/OXIDprojects/OXID-Module-Connector.git"
     }
   ],
   "require": {
-    "omc/omc-composer-installer": "*"
+    "omc/omc-composer-installer": "dev-composer-installer"
   },
   "extra": {
     "omc-composer-installer": {
