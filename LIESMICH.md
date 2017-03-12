@@ -1,12 +1,50 @@
-# OXID Modul Connector
-
-Der OXID Modul Connector (OMC) stellt verfügbare Module und eine Kurzbeschreibung dar und erlaubt es, diese Module (falls möglich) automatisch und direkt aus dem OXID eShop Adminbereich heraus zu installieren. Falls die automatische Installation aus irgendeinem Grund nicht möglich ist, verlinkt OMC direkt auf die originale Modulseite. ([English version](https://github.com/OXIDprojects/OXID-Module-Connector/blob/module/README.md))
-
-![](https://github.com/OXIDprojects/OXID-Module-Connector/blob/module/screenshot_omc.png)
+# OXID Modul Connector - Composer Installer
 
 ## Installation
 
-Die Installation des OMC ist genauso einfach wie die jedes anderen OXID eShop Moduls. Bitte nehmt die [Systemvoraussetzungen](https://github.com/OXIDprojects/OXID-Module-Connector/wiki/Systemvoraussetzungen) für dieses Projekt zur Kenntnis und lest die detaillierte [Installationsanleitung](https://github.com/OXIDprojects/OXID-Module-Connector/wiki/Installation-(DE)) in unserer Wiki für mehr Informationen. 
+Der Composer-Installer kann über die composer.json eures Projektes installiert werden. Diese
+sollte aktuell im Hauptverzeichnis des Shops liegen, wo auch der "vendor"-Ordner erstellt wird.
+
+__Hinweis__: OXID 6 wird durch die Struktur mit einem "source"-Unterordner noch nicht unterstützt, das kommt aber in Kürze! :)
+
+In der "composer.json" könnt ihr dann direkt omc-Module über Composer installieren lassen, hier 
+ein Beispiel:
+
+```json
+{
+  "name": "my/oxid-project",
+  "license": "MIT",
+  "repositories": [
+    {
+      "name": "omc/omc-composer-installer",
+      "type": "vcs",
+      "url": "git@glass.shoptimax.de:internal/omc-composer-installer.git"
+    }
+  ],
+  "require": {
+    "omc/omc-composer-installer": "*"
+  },
+  "extra": {
+    "omc-composer-installer": {
+      "oxidversion": "4.10",
+      "cookbooks": {
+        "omc": "https://github.com/OXIDprojects/OXID-Modul-Connector/archive/recipes.zip"
+      },
+      "modules": {
+        "jkrug/ocbcleartmp": "1.0.0-v47",
+        "acirtautas/oxidmoduleinternals": "0.3.1"
+      },
+      "settings": {
+        "alwaysRunOnUpdate": "true"
+      }
+    }
+  }
+}
+```
+
+siehe auch "example-composer.json" im Projekt.
+Im __"extra"__-Bereich konfiguriert ihr den omc Composer Installer, Pflicht sind hier mindestens ein __"Cookbook"__ im "cookbooks"-Array
+sowie natürlich mindestens ein omc-Modul ;)
 
 ## Disclaimer
 
@@ -14,14 +52,6 @@ Bitte beachtet, dass es sich um ein Community-Projekt handelt, für das es keine
 
 > ACHTUNG! <br>
 > Dieses Modul wurde für Entwicklungs- und Testzwecke gebaut.<br>Bitte installiert keine Module in Eurer Live-Umgebung!<br>Bitte sichert Eure Installation (Datenbank und Dateien), before Ihr Module über den OXID Modul Connector installiert!
-
-## Dein Modul im OMC
-
-Es ist sehr simpel, das eigene Modul im OMC zu listen: Schickt uns einfach einen Pull-Request mit dem Rezept für Euer Modul. Hier steht, wie man ein solches [Rezept erstellen](https://github.com/OXIDprojects/OXID-Module-Connector/wiki/Dein-Modul-im-OMC) kann.
-
-## Changelog
-
-Schaut bitte in die [CHANGELOG-Datei](https://github.com/OXIDprojects/OXID-Module-Connector/blob/module/CHANGELOG.md).
 
 ## Lizenz
 Der OXID Modul Connector ist unter MIT lizenziert.
