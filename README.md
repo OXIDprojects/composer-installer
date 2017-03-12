@@ -45,10 +45,15 @@ ein Beispiel:
 siehe auch "example-composer.json" im Projekt.
 Im __"extra"__-Bereich konfiguriert ihr den omc Composer Installer, Pflicht sind hier mindestens ein __"Cookbook"__ im "cookbooks"-Array
 sowie natürlich mindestens ein omc-Modul ;)
+Bei jedem "composer install" oder "composer update" wird dann das "modules"-Array durchgegangen und
+noch nicht im Shop installierte Module automatisch (über den ioly-Core) installiert.
+Aktuell wird nur die Installation der omc-Module über Composer installiert, deinstallieren muss man
+aktuell noch "manuell" über die omc-Shell.
 
 ## Disclaimer
 
-Bitte beachtet, dass es sich um ein Community-Projekt handelt, für das es keinerlei Garantie auf Komplettheit oder Richtigkeit der Inhalte gibt. Wenn Ihr das Projekt gut findet, freuen wir uns über das Einreichen weiterer Module oder auch gern über Euren Beitrag zur Weiterentwicklung.
+Bitte beachtet, dass es sich um ein _Community-Projekt_ handelt, für das es keinerlei Garantie auf Komplettheit oder Richtigkeit der Inhalte gibt. Wenn Ihr das Projekt gut findet, freuen wir uns über das Einreichen weiterer Module oder auch gern über Euren Beitrag zur Weiterentwicklung.
+Der Composer-Installer ist noch ein __Prototyp__, Verbesserungen und Vorschläge sind jederzeit willkommen!
 
 > ACHTUNG! <br>
 > Dieses Modul wurde für Entwicklungs- und Testzwecke gebaut.<br>Bitte installiert keine Module in Eurer Live-Umgebung!<br>Bitte sichert Eure Installation (Datenbank und Dateien), before Ihr Module über den OXID Modul Connector installiert!
